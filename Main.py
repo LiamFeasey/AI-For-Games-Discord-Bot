@@ -50,7 +50,7 @@ async def on_message(message):
         response = f'I am just a test to help my author learn how to create discord bots!'
     elif message.content == "Dan":
         channel = message.channel
-        file = discord.File("C:/Users/30005249/Documents/Artificial Intelligence for Games/Assignment 1/dan.png")
+        file = discord.File("C:/Liam/University Stuff/2022-2023 (Year 3)/Artificial Intelligence For Game Developers/Assignment 1/dan.png")
         await channel.send(file=file)
         response = 'Available to a good home for £20'
 
@@ -110,10 +110,10 @@ async def on_message(message):
 async def on_reaction_add(reaction, user):
     # Do something when a reaction is added
     print(f"{user} added {reaction.emoji} to {reaction.message}")
-    await send_message(reaction.channel, f"{user} added {reaction.emoji} to \"{reaction.message.content}\"")
+    await send_message(reaction.message.channel.id, f"{user} added {reaction.emoji} to \"{reaction.message.content}\"")
 
 # Start the Discord bot
-client.run('BOT_TOKEN_GOES_HERE')  # Replace with your bot's token
+client.run('MTA3Nzk5ODQyOTA5NzE4MTE4NA.GrgJdD.4og0AMM2V5CE6_1HVmaucj-DAL_RkVk6CGWoS8')  # Replace with your bot's token
 
 if client:
   print("Running")
