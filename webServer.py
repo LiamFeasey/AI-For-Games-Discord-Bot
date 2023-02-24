@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect
-import urllib.parse
+#import urllib.parse
+import urlparse
 
 app = Flask(__name__)
 
@@ -10,15 +11,14 @@ def callback():
     code = request.args.get('code')
 
     # Construct the redirect URL that includes the authorization code
-    redirect_uri = 'http://localhost:5000/callback'
-    client_id = 'BOT_CLIENT_ID'
-    client_secret = 'BOT_CLIENT_SECRET'
-    scope = 'identify%20guilds'
+    redirect_uri = 'https://perfect-super-andesaurus.glitch.me/callback'
+    client_id = '1077998429097181184'
+    client_secret = 'gR_5nyVCdeai86ly1eryVC4V4DgcbX9v'
+    scope = 'https://discord.com/api/oauth2/authorize?client_id=1077998429097181184&permissions=274877975616&scope=bot'
     discord_auth_url = 'https://discordapp.com/api/oauth2/authorize?response_type=code&client_id={0}&scope={1}&redirect_uri={2}'
     discord_auth_url = discord_auth_url.format(client_id, scope, urllib.parse.quote(redirect_uri, safe=''))
 
     token_endpoint = 'https://discordapp.com/api/oauth2/token'
-    redirect_uri = 'http://localhost:5000/callback'
 
     # Send the redirect response to the user's web browser or the Discord API
     response = redirect(discord_auth_url)
